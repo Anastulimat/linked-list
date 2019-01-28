@@ -44,5 +44,7 @@ linked_list 		append(linked_list list, int data);
 linked_list 		pop_back(linked_list list);
 linked_list 		pop_front(linked_list list);
 int 				sum_list(linked_list list);
+linked_list 		find(linked_list list, int n);
+linked_list 		linked_list_from_array(int* array, int size);
 
 #endif

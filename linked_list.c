@@ -326,7 +326,60 @@ void clear_list(linked_list* list)
 
 
 
+/**
+ *
+ * func : 
+ *
+ * args : 
+ *
+ * desc : 
+ * 
+ * return : 
+ *        
+**/    
+linked_list find(linked_list list, int n)
+{
+    if(!list)
+        return list;
 
+
+    while(list)
+    {
+        if(list->value == n)
+        {
+            return list;
+        }
+        list = list->next;
+    }
+    return NULL;
+}
+
+
+
+/**
+ *
+ * func : 
+ *
+ * args : 
+ *
+ * desc : 
+ * 
+ * return : 
+ *        
+**/    
+linked_list linked_list_from_array(int* array, int size)
+{
+    if(!array)
+        return NULL;
+
+    linked_list list = new_list();
+    for(int i = 0; i < size; i++) 
+    {
+        list = append(list, array[i]);
+    }
+
+    return list;
+}
 
 
 
