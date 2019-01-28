@@ -89,11 +89,10 @@ void print_list(linked_list list)
         return;
     }
 
-    linked_list l = list;
-    while(l)
+    while(list)
     {
-        printf("[%d] -> ", l->value);
-        l = l->next;
+        printf("[%d] -> ", list->value);
+        list = list->next;
     }
     printf("NULL\n");
 }
@@ -101,13 +100,13 @@ void print_list(linked_list list)
 
 /**
  *
- * func : 
+ * func : linked_list new_node(int data)
  *
- * args : 
+ * args : data : int ==> la valeur de la donnée à inserer
  *
- * desc : 
+ * desc : Créer un nouveau noeud avec la donnée pour l'insersion de donnée.
  * 
- * return : 
+ * return : node : linked_list ==> Un pointer vers le noeud créé
  *        
 **/
 linked_list new_node(int data)
@@ -125,15 +124,17 @@ linked_list new_node(int data)
 }
 
 
+
 /**
  *
- * func : 
+ * func : linked_list push(linked_list list, int data)
  *
- * args : 
+ * args : list : linked_list ==> pointeur vers la liste
+ *        data : int ==> donnée à inserer
  *
- * desc : 
+ * desc : Insérer la donnée au début de la liste
  * 
- * return : 
+ * return : new_list : linked_list ==> pointeur vers la nouvelle liste créé.
  *        
 **/    
 linked_list push(linked_list list, int data)
@@ -154,13 +155,14 @@ linked_list push(linked_list list, int data)
 
 /**
  *
- * func : 
+ * func : linked_list append(linked_list list, int data)
  *
- * args : 
+ * args : list : linked_list ==> pointeur vers la liste
+ *        data : int ==> donnée à inserer
  *
- * desc : 
+ * desc : Insérer la donnée à la fin de la liste
  * 
- * return : 
+ * return : new_list : linked_list ==> pointeur vers la nouvelle liste créé.
  *        
 **/
 linked_list append(linked_list list, int data)
@@ -190,13 +192,13 @@ linked_list append(linked_list list, int data)
 
 /**
  *
- * func : 
+ * func : linked_list pop_back(linked_list list)
  *
- * args : 
+ * args : list : linked_list ==> pointeur vers la liste
  *
- * desc : 
+ * desc : Supprimer le dernier élément de la liste
  * 
- * return : 
+ * return : list : linked_list ==> pointeur vers la nouvelle liste créé.
  *        
 **/    
 linked_list pop_back(linked_list list)
@@ -234,27 +236,99 @@ linked_list pop_back(linked_list list)
 
 /**
  *
- * func : 
+ * func : linked_list pop_front(linked_list list)
  *
- * args : 
+ * args : list : linked_list ==> pointeur vers la liste
  *
- * desc : 
+ * desc : Supprimer le premier élément de la liste.
  * 
- * return : 
+ * return : list | new_list : linked_list ==> pointeur vers la nouvelle liste créé.
  *        
-**/    
+**/  
 linked_list pop_front(linked_list list)
 {
     if(isEmpty(list))
         return list;
 
+    //On pointe sur le next du premier élément
     linked_list new_list = list->next;
 
+    //On libère le premier élément et on le met à null
     free(list);
     list = NULL;
 
+    //On retourne la nouvelle liste à partir de la deuxième élément
     return new_list;
 }
+
+
+
+/**
+ *
+ * func : int sum_list(linked_list list)
+ *
+ * args : list : linked_list ==> pointeur vers la liste
+ *
+ * desc : Calculer la somme des éléments de la liste et la retourner.
+ * 
+ * return : count : int ==> la somme des éléments de la liste.
+ *        
+**/    
+int sum_list(linked_list list)
+{
+    int count = 0;
+
+    if(isEmpty(list))
+        return 0;
+
+    while(list)
+    {
+        count += list->value;
+        list = list->next;
+    }
+
+    return count;
+}
+
+
+
+/**
+ *
+ * func : void clear_list(linked_list* list)
+ *
+ * args : list : linked_list* ==> Un pointeur sur le pointeur de la liste.
+ *
+ * desc :  Libérer la mémoire d'une liste chianée.
+ *         On détruit chaque noeud avec la fonction free()
+ *         Afin de libérer toute la structure il faut donner son adresse à la fonction.
+ * 
+ * return : void
+ *        
+**/    
+void clear_list(linked_list* list)
+{
+    //Pointeur temporaire
+    linked_list ptr;
+
+    //Tant qu'on a encore de données
+    while(*list != NULL)
+    {
+        //On mémorise l'adress pour la suppression
+        ptr = *list;
+        //On passe au noeud suivant
+        *list = (*list)->next;
+        //On libère
+        free(ptr);
+    }
+    //On met à NULL
+    *list = NULL;
+}
+
+
+
+
+
+
 
 
 

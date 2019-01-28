@@ -40,6 +40,14 @@ int main() {
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
 
+    printf("La somme des éléments de la liste est = %d\n", sum_list(list));
+
+    clear_list(&list);
+    printf("*************************************************\n");
+    //printf("La taille de la liste est = %d\n", length_list(list));
+    print_list(list);
+
+
 
 
     return 0;

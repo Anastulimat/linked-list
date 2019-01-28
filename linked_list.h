@@ -36,11 +36,13 @@ typedef linked_list_node* linked_list;
 ====================================================*/
 linked_list         new_list();
 Bool                isEmpty(linked_list list);
+void				clear_list(linked_list* list);
 int                 length_list(linked_list list);
 void                print_list(linked_list list);
 linked_list 		push(linked_list list, int data);
 linked_list 		append(linked_list list, int data);
 linked_list 		pop_back(linked_list list);
 linked_list 		pop_front(linked_list list);
+int 				sum_list(linked_list list);
 
 #endif
