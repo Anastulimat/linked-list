@@ -7,10 +7,15 @@
 
 int main() {
 
+
+    /* Début d'opérations */
+
     linked_list list = new_list();
 
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
+
+    printf("\n");
 
     list = push(list, 4);
     printf("La taille de la liste est = %d\n", length_list(list));
@@ -40,6 +45,12 @@ int main() {
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
 
+    printf("\n");
+
+
+    /* La somme de la liste */
+
+
     printf("La somme des éléments de la liste est = %d\n", sum_list(list));
 
     //clear_list(&list);
@@ -61,11 +72,34 @@ int main() {
     }
 
 
-
     linked_list new_linked_list = new_list();
-    new_linked_list = linked_list_from_array(array, 5);
+    linked_list inverse_new_list = new_list();
+    linked_list copie_new_list = new_list();
 
+    new_linked_list = linked_list_from_array(array, 5);
+    inverse_new_list = inverse_list(new_linked_list);
+    copie_new_list = copy_list(new_linked_list);
+
+    printf("\n");
+
+    printf("*** Linked_list_from_array ***\n");
     print_list(new_linked_list);
+    printf("*** Inverse_Linked_list ***\n");
+    print_list(inverse_new_list);
+    printf("*** Copie_new_list ***\n");
+    print_list(copie_new_list);
+
+    printf("\n");
+
+    int* new_array = array_from_linked_list(new_linked_list);
+
+    for (int i = 0; i < length_list(new_linked_list); ++i)
+    {
+        printf("array[%d] = %d\n",i, new_array[i] );
+    }
+
+    printf("\n");
+
 
 
 

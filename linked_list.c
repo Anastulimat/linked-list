@@ -383,6 +383,114 @@ linked_list linked_list_from_array(int* array, int size)
 
 
 
+/**
+ *
+ * func : 
+ *
+ * args : 
+ *
+ * desc : 
+ * 
+ * return : 
+ *        
+**/    
+int* array_from_linked_list(linked_list list) 
+{
+    if(isEmpty(list))
+        return NULL;
+
+    int* array = (int*) malloc(sizeof(int) * length_list(list));
+    if(!array)
+    {
+        printf("array_from_linked_list malloc errer !\n");
+        exit(0);
+    }
+
+    int i = 0;
+    while(list != NULL)
+    {
+        array[i] = list->value;
+        list = list->next;
+        i++;
+    }
+
+    return array;
+}
+
+
+
+/**
+ *
+ * func : 
+ *
+ * args : 
+ *
+ * desc : 
+ * 
+ * return : 
+ *        
+**/
+linked_list inverse_list(linked_list list) 
+{
+    if(!list) 
+        return NULL;
+
+    linked_list l = new_list();
+
+    while(list != NULL)
+    {
+        l = push(l, list->value);
+        list = list->next;
+    }
+
+    return l;
+}
+
+
+
+/**
+ *
+ * func : 
+ *
+ * args : 
+ *
+ * desc : 
+ * 
+ * return : 
+ *        
+**/
+linked_list copy_list(linked_list list) 
+{
+    if(!list)
+        return NULL;
+
+    linked_list l = new_list();
+
+    while(list != NULL)
+    {
+        l = append(l, list->value);
+        list = list->next;
+    }
+
+    return l;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
