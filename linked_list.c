@@ -478,6 +478,121 @@ linked_list copy_list(linked_list list)
 
 
 
+/**
+ *
+ * func : 
+ *
+ * args : 
+ *
+ * desc : 
+ * 
+ * return : 
+ *        
+**/    
+linked_list remove_first_occurence(linked_list list, int data)
+{
+    if(!list)
+        return NULL;
+
+    /* We need two pointers to traverse the list */
+    linked_list ptr_list, next_node;
+
+    ptr_list = list;
+
+    if(!ptr_list)
+        return list;
+
+
+    /* If the first node has the data to remove */
+    if(ptr_list->value == data)
+    {
+        ptr_list = ptr_list->next;
+        free(ptr_list);
+        return ptr_list;
+    }
+
+
+    /* We need two ponters one for the current node and tge other for the next node */
+    next_node = ptr_list->next;
+
+    while(next_node->next != NULL && next_node->value != data)
+    {
+        ptr_list = ptr_list->next;
+        next_node = ptr_list->next;
+    }
+
+    if(next_node->value == data)
+    {
+        ptr_list->next = next_node->next;
+        free(next_node); 
+    }
+
+    return list;
+}
+
+
+
+/**
+ *
+ * func : 
+ *
+ * args : 
+ *
+ * desc : 
+ * 
+ * return : 
+ *        
+**/    
+linked_list remove_all_occurence(linked_list list, int data)
+{
+    if(!list)
+        return NULL;
+
+    linked_list new_linked_list = new_list();
+
+    while(list != NULL)
+    {
+        if(list->value == data)
+        {
+            list = list->next;
+            continue;
+        }
+        new_linked_list = append(new_linked_list, list->value);
+        list = list->next;
+    }
+
+    return new_linked_list;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

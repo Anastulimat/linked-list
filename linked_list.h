@@ -49,5 +49,7 @@ linked_list 		linked_list_from_array(int* array, int size);
 int* 				array_from_linked_list(linked_list list);
 linked_list 		inverse_list(linked_list list);
 linked_list 		copy_list(linked_list list);
+linked_list 		remove_first_occurence(linked_list list, int data);
+linked_list 		remove_all_occurence(linked_list list, int data);
 
 #endif

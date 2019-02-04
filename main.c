@@ -29,6 +29,26 @@ int main() {
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
 
+    list = push(list, 17);
+    printf("La taille de la liste est = %d\n", length_list(list));
+    print_list(list);
+
+    list = push(list, 17);
+    printf("La taille de la liste est = %d\n", length_list(list));
+    print_list(list);
+
+    list = push(list, 17);
+    printf("La taille de la liste est = %d\n", length_list(list));
+    print_list(list);
+
+    list = push(list, 17);
+    printf("La taille de la liste est = %d\n", length_list(list));
+    print_list(list);
+
+    list = push(list, 17);
+    printf("La taille de la liste est = %d\n", length_list(list));
+    print_list(list);
+
     list = append(list, 17);
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
@@ -37,6 +57,7 @@ int main() {
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
 
+    /*
     list = pop_back(list);
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
@@ -44,6 +65,7 @@ int main() {
     list = pop_front(list);
     printf("La taille de la liste est = %d\n", length_list(list));
     print_list(list);
+    */
 
     printf("\n");
 
@@ -88,6 +110,35 @@ int main() {
     print_list(inverse_new_list);
     printf("*** Copie_new_list ***\n");
     print_list(copie_new_list);
+
+    list = remove_first_occurence(list, 14);
+    printf("\n");
+    printf("*** list REMOVE 14 ***\n");
+    print_list(list);
+
+
+    list = remove_first_occurence(list, 3);
+    printf("\n");
+    printf("*** list REMOVE 3 ***\n");
+    print_list(list);
+
+    /*
+    list = remove_first_occurence(list, 17);
+    printf("\n");
+    printf("*** list REMOVE 17 ***\n");
+    print_list(list);
+    */
+
+
+    list = remove_first_occurence(list, 15);
+    printf("\n");
+    printf("*** list REMOVE 15 ***\n");
+    print_list(list);
+
+    list = remove_all_occurence(list, 17);
+    printf("\n");
+    printf("*** list REMOVE 17 ***\n");
+    print_list(list);
 
     printf("\n");
 
